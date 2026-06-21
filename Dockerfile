@@ -7,6 +7,7 @@ RUN apk add --no-cache \
     git \
     composer \
     mysql-client \
+    oniguruma-dev \
     && docker-php-ext-install pdo pdo_mysql mbstring
 
 # Install Flarum
