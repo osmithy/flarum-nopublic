@@ -7,7 +7,7 @@ RUN apk add --no-cache \
     git \
     composer \
     mysql-client \
-    && docker-php-ext-install pdo pdo_mysql
+    && docker-php-ext-install pdo pdo_mysql mbstring
 
 # Install Flarum
 WORKDIR /app
