@@ -17,7 +17,7 @@ RUN apk add --no-cache \
 
 # Install Flarum
 WORKDIR /app
-RUN composer create-project flarum/flarum . --stability=beta
+RUN composer create-project flarum/flarum . --stability=beta --ignore-platform-req=ext-pdo
 
 # Configure nginx
 RUN mkdir -p /etc/nginx/conf.d
