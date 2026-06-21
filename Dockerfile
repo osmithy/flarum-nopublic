@@ -1,14 +1,19 @@
 FROM php:8.3-fpm-alpine
 
-# Install dependencies
+# Install build dependencies first
+RUN apk add --no-cache \
+    oniguruma-dev
+
+# Install PHP extensions
+RUN docker-php-ext-install pdo pdo_mysql mbstring
+
+# Install runtime dependencies
 RUN apk add --no-cache \
     nginx \
     curl \
     git \
     composer \
-    mysql-client \
-    oniguruma-dev \
-    && docker-php-ext-install pdo pdo_mysql mbstring
+    mysql-client
 
 # Install Flarum
 WORKDIR /app
